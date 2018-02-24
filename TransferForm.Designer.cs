@@ -189,6 +189,7 @@
             this.cmdOk.TabIndex = 10;
             this.cmdOk.Text = "OK";
             this.cmdOk.UseVisualStyleBackColor = true;
+            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // TransferForm
             // 

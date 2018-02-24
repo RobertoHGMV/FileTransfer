@@ -22,11 +22,11 @@ namespace FileTransfer
         {
             try
             {
-                if (!Directory.Exists(targetPath))
+                if (!Directory.Exists(sourcePath))
                     throw new Exception("Diretório de origem não encontrado");
 
                 if (!Directory.Exists(targetPath))
-                    Directory.CreateDirectory(targetPath);
+                    throw new Exception("Diretório de destino não encontrado");
 
                 var files = Directory.GetFiles(sourcePath);
 
@@ -37,9 +37,9 @@ namespace FileTransfer
                     File.Copy(sourcePath, destFile);
                 }
             }
-            catch (UnauthorizedAccessException)
+            catch (UnauthorizedAccessException ex)
             {
-                throw new Exception($"O acesso ao caminho [{sourcePath}] é negado");
+                throw new Exception($"O acesso ao caminho [{sourcePath}] foi negado");
             }
         }
     }

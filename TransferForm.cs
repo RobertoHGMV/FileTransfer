@@ -10,6 +10,18 @@ namespace FileTransfer
             InitializeComponent();
         }
 
+        private void cmdOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                ShowMessageError(ex);
+            }
+        }
+
         #region Copy File
 
         private void btnSouceFile_Click(object sender, EventArgs e)
