@@ -34,7 +34,8 @@ namespace FileTransfer
                 {
                     var fileName = Path.GetFileName(file);
                     var destFile = Path.Combine(targetPath, fileName);
-                    File.Copy(sourcePath, destFile);
+                    var sourceFile = Path.Combine(sourcePath, fileName);
+                    File.Copy(sourceFile, destFile, true);
                 }
             }
             catch (UnauthorizedAccessException ex)
